@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('moonshootApp', [
+  'firebase',
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -23,7 +25,7 @@ angular.module('moonshootApp', [
                 templateUrl: 'components/analytics/analytics.html',     
             })
             .state('landingpage', {
-                url: '/personal',
+                url: '/personal/:effortGuid',
                 templateUrl: 'components/landingpage/landingpage.html',
             })
 
