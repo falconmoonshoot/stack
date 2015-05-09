@@ -6,9 +6,29 @@ angular.module('moonshootApp')
     $scope.effortGuidPath =  $stateParams.effortGuid;
     var ref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.effortGuidPath);
     var syncObject = $firebaseObject(ref);
+    var eventlog;
+    var loaded=false;
     syncObject.$bindTo($scope, "effortGuid");
     var unwatch = syncObject.$watch(function() {
+       ref.update({status:'opened'});
+   
+      if(syncObject.creatorGuid && !loaded)
+      {
 
+        eventlog =  new Firebase("https://glowing-torch-9335.firebaseio.com/"+syncObject.creatorGuid+"/eventlog");
+        var eventObject = $firebaseObject(eventlog);
+        console.dir(eventObject);
+        eventlog.push({ 'event_type': 'Landing Page Opened', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          });
+        
+       
+        loaded=true;
+      
+
+      }
       if(syncObject.videoGuid) {
 
         //size the div to the size of the video
@@ -17,9 +37,13 @@ angular.module('moonshootApp')
 
         $("#player").height(vidheight);
         $("#player").width(vidwidth);
+
+
          ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
 
      }
+     syncObject.status="Opened";
+     unwatch();
     });
 
    $scope.isCollapsed = true;
