@@ -58,6 +58,9 @@ angular.module('moonshootApp')
            var falconref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.falconGuid);
 
            falconref.update({creatorGuid:$scope.firstName+' '+$scope.lastName,
+           falconref.update({
+           					 creatorGuid:$scope.firstName+' '+$scope.lastName,
+           					 creatorEmail:$scope.salesPersonEmail,
                              name:$scope.falconTitle,
                              status:'sent',
                              userGuid:value.email,

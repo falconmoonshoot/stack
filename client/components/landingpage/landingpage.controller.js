@@ -38,7 +38,39 @@ angular.module('moonshootApp')
         $("#player").height(vidheight);
         $("#player").width(vidwidth);
 
-
+         ZiggeoApi.Events.on("play", function(data) 
+         {
+            console.dir(data);
+            eventlog.push(
+              { 'event_type': 'Playback started', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          }
+              );
+         });
+          ZiggeoApi.Events.on("stop", function(data) 
+         {
+            console.dir(data);
+            eventlog.push(
+              { 'event_type': 'Playback stopped', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          }
+              );
+         });
+           ZiggeoApi.Events.on("pause", function(data) 
+         {
+            console.dir(data);
+            eventlog.push(
+              { 'event_type': 'Playback paused', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          }
+              );
+         });
          ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
 
      }
