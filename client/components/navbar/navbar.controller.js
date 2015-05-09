@@ -6,7 +6,7 @@ angular.module('moonshootApp')
       'title': 'Home',
       'link': '/'
     }];
-    
+
     if($location.path().indexOf('personal') !== -1){
       $scope.personal = true;
     }
