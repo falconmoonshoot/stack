@@ -26,5 +26,6 @@
   },
   "_source": "git://github.com/vitalets/checklist-model.git",
   "_target": "~0.2.4",
-  "_originalSource": "checklist-model"
+  "_originalSource": "checklist-model",
+  "_direct": true
 }
