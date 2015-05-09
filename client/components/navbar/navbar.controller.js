@@ -7,7 +7,7 @@ angular.module('moonshootApp')
       'link': '/'
     }];
     
-    if($location.path().indexOf('personal')){
+    if($location.path().indexOf('personal') !== -1){
       $scope.personal = true;
     }
 
