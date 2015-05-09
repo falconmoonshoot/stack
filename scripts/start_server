@@ -1,7 +1,5 @@
 #!/bin/bash
 cd /opt/app
 npm install
-bower install
-grunt build
 export NODE_ENV=production
 forever start /opt/app/server/app.js
