@@ -6,10 +6,16 @@ angular.module('moonshootApp')
       'title': 'Home',
       'link': '/'
     }];
+<<<<<<< HEAD
     
     if($location.path().indexOf('personal') !== -1){
       $scope.personal = true;
     }
+=======
+    console.log($location.path());
+
+    //if ()
+>>>>>>> d
 
     $scope.isCollapsed = true;
 
