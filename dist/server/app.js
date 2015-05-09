@@ -12,6 +12,11 @@ var config = require('./config/environment');
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
+
+// CORS support
+var cors = require('cors');
+app.use(cors());
+
 require('./config/express')(app);
 require('./routes')(app);
 
