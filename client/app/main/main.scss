@@ -38,3 +38,26 @@
   font-size: 20px;
   font-weight: 300;
 }
+
+.bigSingleInput:focus{
+  border-top:none !important;
+  border-left:none !important;
+  border-right:none !important;
+  border-bottom: none !important;
+  outline:none;
+}
+.bigSingleInput{
+  background: transparent;
+  font-size: 5.143em;
+  border-bottom: none;
+  color: black;
+  letter-spacing: -1px;
+  font-family: "Light-45","Helvetica Neue","Helvetica",Arial,sans-serif;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -1px;
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}

@@ -5,11 +5,11 @@ angular.module('moonshootApp')
 
   	console.log($stateParams.auth);
     //$http.get('')
-    if($stateParams.auth==null)
-    {
+    //if($stateParams.auth==null)
+    //{
 
-    	$state.go('login');
-    }
+    //	$state.go('login');
+    //}
     $scope.guid = function guid() {
        function s4() {
          return Math.floor((1 + Math.random()) * 0x10000)
@@ -20,8 +20,8 @@ angular.module('moonshootApp')
          s4() + s4() + s4() + s4();
     }
 
-    if ($stateParams.auth){
-      $http.defaults.headers.common.Authorization = 'OAuth '+$stateParams.auth.access_token;
+    //if ($stateParams.auth){
+      //$http.defaults.headers.common.Authorization = 'OAuth '+$stateParams.auth.access_token;
       //$http.get($stateParams.auth.instance_url+"/services/data/v33.0/query?q=SELECT+Name+from+Contact").success(function(data){
       //  console.log(data);
       //});
@@ -30,7 +30,7 @@ angular.module('moonshootApp')
       $scope.salesPersonEmail = 'mike@salesramp.io';
       $scope.firstName = 'Mike';
       $scope.lastName = 'Pollack';
-    }
+    //}
 
     var ref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.userIdGuid);
 
@@ -68,6 +68,29 @@ angular.module('moonshootApp')
         });
       }
     }
+
+    $scope.falcons = [
+    {
+      name: 'This is the best event ever!',
+      views: 20,
+      publish_date: '05/09/2015',
+    },
+    {
+      name: 'Video Hack Day 2015!',
+      views: 1,
+      publish_date: '05/09/2015',
+    },
+    {
+      name: 'I really wanna win the Dropcam Prizes!',
+      views: 15,
+      publish_date: '05/09/2015',
+    },
+    {
+      name: 'Firebase has Changed my Life!',
+      views: 40,
+      publish_date: '05/09/2015',
+    },
+    ]
 
   $scope.sendemail = function sendMail(eml, to_name, guid) {
        $.ajax({

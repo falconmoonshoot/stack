@@ -5,13 +5,16 @@
     </div>
   </div>
   <div class="row">
-    <input ng-model='falconTitle' />
+  <div class='col-xs-12'>
+    <input ng-model='falconTitle' placeholder='1. Title your Falcon' type='text' class='bigSingleInput' autofocus />
+    <!--<h1 class='fontweight300' style='display:inline-block' popover="A simple video message goes a long way." popover-trigger="mouseenter" popover-placement='right'></h1>-->
+  </div>
     <div class="col-lg-8">
-      <h3 tooltip='A moonshoot is a great way to communicate with customers and prospects' class="page-header">1. Record a Video:</h3>
+      <h3 tooltip='A moonshoot is a great way to communicate with customers and prospects' class="page-header">2. Record a Video:</h3>
       <ziggeo ziggeo-width=640 ziggeo-height=480 ziggeo-meta_profile = "bc1cd9329d4776dffe0609004fe397d4"></ziggeo>
     </div>
     <div class="col-lg-4">
-      <h3 class="page-header">2. Select Contacts:</h1>
+      <h3 class="page-header">3. Select Contacts:</h1>
       <ul>
         <li class='falconstyle' ng-repeat='contact in contacts'>
           <input type="checkbox" checklist-model="selectedUsers" checklist-value="contact" type='checkbox' /> {{contact.name}}
@@ -23,13 +26,53 @@
   <div class="row">
     <div class='col-lg-12'>
       <div class='text-center' style='padding-top:45px;'>
-        <button style="font-size:32px;font-weight:300;" class='btn btn-primary' ng-click='sendFalcon()'>Send a Falcon</button>
+        <button style="font-size:32px;font-weight:300;" class='btn btn-primary' ng-click='sendFalcon()'>Send Falcon</button>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class='col-lg-12'>
+    <div class='col-xs-12'>
       <h3 class="page-header">My Studio:</h1>
+    </div>
+    <div class='col-xs-8'>
+    <table class="table table-bordered table-hover bg-white topmargin">
+          <tr style="font-weight: bold">
+             <td style="width:35%">Title</td>
+             <td style="width:10%">Views</td>
+             <td style="width:10%">Stats</td>
+             <td style="width:10%">Created date</td>
+             <td style="width:20%">Action</td>
+          </tr>
+          <tr ng-repeat="falcon in falcons">
+             <td>
+                <span>{{falcon.name}}</span>
+             </td>
+             <td>
+                <span>{{falcon.views}}</span>
+             </td>
+             <td>
+                <span><a ui-sref='analytics'>view report</a></span> 
+             </td>
+             <td>
+                <span>{{falcon.publish_date}}</span>
+             </td>
+             <td style="white-space: nowrap">
+                <!-- form-->
+                <div class="buttons">
+                   <button ng-click="expand(play);gettype('email')" tooltip='email' class="btn btn-sm btn-info">
+                      <em class="fa fa-envelope"></em>
+                   </button>
+                   <button ng-click="expand(play);gettype('mobile')" tooltip='text' class="btn btn-sm btn-info modfont">
+                      <em class="fa fa-mobile"></em>
+                   </button>
+                   <button ng-click="confirm=$index" tooltip='delete' class="btn btn-sm btn-danger">
+                      <em class="fa fa-trash"></em>
+                   </button>               
+                </div>
+             </td>
+             </a>
+          </tr>
+       </table>
     </div>
   </div>
 </div>
