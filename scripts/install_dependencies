@@ -2,8 +2,5 @@
 yum install -y nodejs npm --enablerepo=epel
 npm install -g express forever bower grunt-cli
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
-cd /opt/app
+mkdir -p /opt/app
 gem install sass
-npm install
-bower install
-grunt build
