@@ -11,11 +11,12 @@ angular.module('moonshootApp', [
     $urlRouterProvider
       .otherwise('/');
 
+    //this is home
+
     $stateProvider 
             // HOME STATES AND NESTED VIEWS ========================================
-            .state('home', {
-                url: '/home',
-                abstract:true,
+            .state('login', {
+                url: '/login',
                 templateUrl: 'components/home/home.html',
             })
             .state('analytics', {
