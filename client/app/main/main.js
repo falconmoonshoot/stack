@@ -5,6 +5,7 @@ angular.module('moonshootApp')
     $stateProvider
       .state('main', {
         url: '/',
+        params: {auth: null},
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       });

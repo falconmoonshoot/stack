@@ -1,10 +1,15 @@
 'use strict';
 
 angular.module('moonshootApp')
-  .controller('MainCtrl', function ($scope, $http, $filter, $firebaseObject) {
+  .controller('MainCtrl', function ($scope,$state,$stateParams, $http, $filter, $firebaseObject) {
 
+  	console.log($stateParams.auth);
     //$http.get('')
-    
+    if($stateParams.auth==null)
+    {
+
+    	$state.go('login')
+    }
     $scope.userId = 'dsaf'
     var ref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.userId);
 
