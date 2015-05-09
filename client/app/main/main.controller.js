@@ -62,6 +62,7 @@ angular.module('moonshootApp')
            					 creatorEmail:$scope.salesPersonEmail,
                              name:$scope.falconTitle,
                              status:'sent',
+                             createDate: new Date().getTime(),
                              userGuid:value.email,
                              userName:value.name,
                              videoGuid:$scope.recordingUniqueId});
@@ -70,29 +71,41 @@ angular.module('moonshootApp')
         });
       }
     }
+    $scope.myfalcons = [];
+    var allfalcons = new Firebase("https://glowing-torch-9335.firebaseio.com/");
+    allfalcons.orderByChild("creatorEmail").equalTo($scope.salesPersonEmail).on("child_added",
+    	function(snapshot)
+    	{
+    		$scope.myfalcons.push(snapshot.val());
+    		console.log(snapshot.val());
+    		$scope.processFalcons();
+    	    	});
 
-    $scope.falcons = [
+    $scope.processFalcons = function()
     {
-      name: 'This is the best event ever!',
-      views: 20,
-      publish_date: '05/09/2015',
-    },
-    {
-      name: 'Video Hack Day 2015!',
-      views: 1,
-      publish_date: '05/09/2015',
-    },
-    {
-      name: 'I really wanna win the Dropcam Prizes!',
-      views: 15,
-      publish_date: '05/09/2015',
-    },
-    {
-      name: 'Firebase has Changed my Life!',
-      views: 40,
-      publish_date: '05/09/2015',
-    },
-    ]
+
+    	var blah = {};
+    	var pushed = {};
+    	$scope.myfalcons.forEach(function(entry){
+    		if(!blah[entry.name]) {
+    			blah[entry.name] = {"name": entry.name,views: 0, "publish_date": entry.createDate};
+    			pushed[entry.name]=false;
+    		}
+    		blah[entry.name].views += (entry.status!='sent')?1:0;
+    		
+    	});
+    	$scope.falcons = [];
+
+    	$scope.myfalcons.forEach(function(entry){
+    		if(!pushed[entry.name]) {
+    			$scope.falcons.push(blah[entry.name]);
+    			pushed[entry.name]=true;
+    		}
+    	})
+    	return $scope.falcons;
+    }
+    	
+   
 
   $scope.sendemail = function sendMail(eml, to_name, guid) {
        $.ajax({
@@ -115,7 +128,7 @@ angular.module('moonshootApp')
            }
          }
         }).done(function(response) {
-          console.log(response); 
+         
         });
     }
 

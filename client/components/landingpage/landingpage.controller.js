@@ -71,6 +71,20 @@ angular.module('moonshootApp')
                           }
               );
          });
+
+            ZiggeoApi.Events.on("record", function(data) 
+         {
+            console.dir(data);
+            eventlog.push(
+              { 'event_type': 'Recorded a video', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          }
+              );
+         });
+
+           
          ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
 
      }
