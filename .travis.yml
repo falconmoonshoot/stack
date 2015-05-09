@@ -7,3 +7,6 @@ before_script:
   - gem install sass
   - bower install
 services: mongodb
+
+notifications:
+  slack: moonshoot:BphAPBZjNZhbXyL2MVcVS8Ql
