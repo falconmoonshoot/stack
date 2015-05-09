@@ -12,11 +12,11 @@ angular.module('moonshootApp')
     syncObject.$bindTo($scope, "user");
     
     $scope.contacts = [{ name: 'Patrick Malley', type: 'Contact', checked:false},
-                       { name: 'Patrick Malley', type: 'Contact', checked:false},
-                       { name: 'Patrick Malley', type: 'Contact', checked:false},
+                       { name: 'Patrick Michael', type: 'Contact', checked:false},
+                       { name: 'Patrick Martin', type: 'Contact', checked:false},
                       ];
 
-    $scope.selectedUsers = {};
+    $scope.selectedUsers = [];
 
     ZiggeoApi.Events.on("submitted", function (data) {
         // Triggered when a video has been recorded 
