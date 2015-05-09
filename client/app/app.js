@@ -7,6 +7,7 @@ angular.module('moonshootApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
+  'checklist-model',
   
 ])
 .run(function($rootScope, $location, $state) {

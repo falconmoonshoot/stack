@@ -17,7 +17,7 @@ angular.module('moonshootApp')
 
         $("#player").height(vidheight);
         $("#player").width(vidwidth);
-         ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player'], responsive:true});
+         ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
         
      }
     });
