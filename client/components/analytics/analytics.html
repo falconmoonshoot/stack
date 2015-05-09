@@ -1,0 +1,13 @@
+<div class="" ng-controller="AnalyticsPageCtrl" style="padding-top: 50px;">
+    <div class="col-md-4">
+    <h1>Total minutes</h1>
+    <p>{{totalMinutes}} minutes</p>
+    </div>
+    <div class="col-md-8">
+    <h1>Feed</h1>
+    <h2>{{logEvents.length}} events</h2>
+    <ul ng-repeat="logEvent in logEvents">
+      <li>{{logEvent.event_time}} &middot; {{logEvent.event_type}} &middot; {{logEvent.event_user}}</li>
+    </ul>
+
+    </div>

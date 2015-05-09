@@ -7,15 +7,16 @@
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var express = require('express');
 var config = require('./config/environment');
-// Setup server
-var app = express();
-var server = require('http').createServer(app);
 
-// CORS support
-var cors = require('cors');
+var express = require('express')
+  , cors = require('cors')
+  , app = express();
+
 app.use(cors());
+
+// Setup server
+var server = require('http').createServer(app);
 
 require('./config/express')(app);
 require('./routes')(app);

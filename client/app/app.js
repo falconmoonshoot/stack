@@ -8,7 +8,7 @@ angular.module('moonshootApp', [
   'ui.router',
   'ui.bootstrap',
   'checklist-model',
-  
+  'angularMoment',
 ])
 .run(function($rootScope, $location, $state) {
 
