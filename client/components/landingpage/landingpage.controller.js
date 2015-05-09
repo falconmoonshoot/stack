@@ -10,10 +10,6 @@ angular.module('moonshootApp')
     var unwatch = syncObject.$watch(function() {
 
       if(syncObject.videoGuid) {
-<<<<<<< HEAD
-       ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
-       console.log("loaded"); 
-=======
 
         //size the div to the size of the video
         var vidheight = ZiggeoApi.Videos.get(syncObject.videoGuid).streams[0].video_height;
@@ -23,7 +19,6 @@ angular.module('moonshootApp')
         $("#player").width(vidwidth);
          ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player'], responsive:true});
         
->>>>>>> d7cc9b80e767749903756cdb68de87bfbd700510
      }
     });
 
