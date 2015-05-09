@@ -10,8 +10,17 @@ angular.module('moonshootApp')
 
     	$state.go('login')
     }
+
+    if ($stateParams.auth){
+      $http.defaults.headers.common.Authorization = 'OAuth '+$stateParams.auth.access_token;
+      $http.get($stateParams.auth.instance_url+"/services/data/v33.0/query?q=SELECT+Name+from+Contact").success(function(data){
+        console.log(data);
+      })
+    }
+
     $scope.userId = 'dsaf'
     var ref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.userId);
+
 
     var syncObject = $firebaseObject(ref);
     syncObject.$bindTo($scope, "user");
