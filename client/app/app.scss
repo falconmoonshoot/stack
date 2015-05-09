@@ -15,9 +15,38 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+.header1{
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  background-color: #2f80e7;
+  display: flex;
+  height:50px;
+}
+
+#header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  z-index: 999;
+  /* background: rgba(20, 20, 19, 0.94); */
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 // Component styles are injected through grunt
 // injector
-@import 'account/login/login.scss';
-@import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'modal/modal.scss';
 // endinjector

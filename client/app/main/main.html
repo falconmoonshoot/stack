@@ -1,10 +1,29 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+<header id='header' style="-webkit-transform: none;">
+  <div class='header1'>
+      <a class="js-use-pushstate" id="logo" href="http://www.salesramp.io" target="_blank">
+        <div class='logo'><img src='/static/img/whitelogo_lettersonly.png' /></div>
+      </a>
+      <nav class='hide-on-mobile' id='primaryNavigation'>
+         <ul class="nav navbar-nav">
+           <!--<li ng-hide='isSearchActive' ui-sref-active="active1"><a ui-sref="timeline">Timeline</a></li>-->
+           <li ng-hide='isSearchActive' ui-sref-active="active1"><a ui-sref="home.studio">Home</a></li>
+           <li ng-hide='isSearchActive' ui-sref-active="active1"><a ui-sref="reports">Report</a></li>
+           <li ng-hide='isSearchActive' ui-sref-active='active1'><a ui-sref="quickHuddle">Huddle</a></li>
+           <!--<li ng-hide='isSearchActive' ui-sref-active="active1"><a ui-sref="competitions">Competitions</a></li>-->
+         </ul>
+      </nav>
+      <div ng-click='toggleSearchOn()' class='globalSearchForm'>
+        <span ng-class='{togglePlaceholderOff:isSearchActive}' class='globalSearchPlaceholder'>
+          <span class='searchglyph'><i class="fa fa-search"></i></span>
+          <span ng-hide='asyncSelected' class='baseline'>Search for deal stories, customer testimonials and more...</span>
+          <span><i ng-click='toggleSearchOff();$event.stopPropagation();testfunc()' ng-class='{hide:!isSearchActive}' class="fa fa-times pull-right turnoffSearch"></i></span>
+        </span>
+        <form name="formHolder.searchForm" novalidate>
+          <input ng-enter='search($parent.asyncSelected)' ng-click='$event.stopPropagation()' id='searchbox' ng-class='{toggleInputOn:isSearchActive}' type="text" ng-model="$parent.asyncSelected" typeahead="play as play.name for play in plays  | filter:$viewValue | limitTo:10" typeahead-loading="loadingLocations" typeahead-on-select="onSelect($item, $model, $label)" class="globalSearchInput" typeahead-focus-first='false'>
+        </form>
+      </div>
   </div>
 </header>
 
