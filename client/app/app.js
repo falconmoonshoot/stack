@@ -7,7 +7,6 @@ angular.module('moonshootApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'checklist-model'
   
 ])
 .run(function($rootScope, $location, $state) {
@@ -44,6 +43,10 @@ angular.module('moonshootApp', [
             .state('landingpage', {
                 url: '/personal/:effortGuid',
                 templateUrl: 'components/landingpage/landingpage.html',
+            })
+            .state('callback', {
+                url: '/auth',
+                templateUrl: 'components/callback/callback.html',
             })
 
     $locationProvider.html5Mode(true);

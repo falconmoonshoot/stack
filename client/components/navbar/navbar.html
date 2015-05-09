@@ -1,10 +1,10 @@
-<header id='header' style="-webkit-transform: none;">
+<header ng-controller='NavbarCtrl' id='header' style="-webkit-transform: none;">
   <div class='header1'>
       <a class="js-use-pushstate" id="logo" href="http://www.salesramp.io" target="_blank">
         Falcon Moonshoot
       </a>
       <nav class='hide-on-mobile' id='primaryNavigation'>
-         <ul class="nav navbar-nav nav-falcon">
+         <ul ng-hide='lp==true' class="nav navbar-nav nav-falcon">
            <!--<li ng-hide='isSearchActive' ui-sref-active="active1"><a ui-sref="timeline">Timeline</a></li>-->
            <li ui-sref-active="active1"><a ui-sref="main">Home</a></li>
            <li ui-sref-active="active1"><a ui-sref="analytics">Analytics</a></li>

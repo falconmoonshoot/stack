@@ -2,6 +2,8 @@
 
 angular.module('moonshootApp')
   .controller('MainCtrl', function ($scope, $http, $filter, $firebaseObject) {
+
+    //$http.get('')
     
     $scope.userId = 'dsaf'
     var ref = new Firebase("https://glowing-torch-9335.firebaseio.com/"+$scope.userId);

@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('moonshootApp')
-  .controller('NavbarCtrl', function ($scope, $location) {
+  .controller('NavbarCtrl', function ($scope, $location, $stateParams) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
     }];
+    console.log($location.path());
+
+    //if ()
 
     $scope.isCollapsed = true;
 
