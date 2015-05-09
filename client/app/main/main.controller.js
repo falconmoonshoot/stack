@@ -9,15 +9,12 @@ angular.module('moonshootApp')
     var syncObject = $firebaseObject(ref);
     syncObject.$bindTo($scope, "user");
     
-    $scope.contacts = [{ name: 'Patrick Malley', type: 'Contact'},
-                       { name: 'Patrick Malley', type: 'Contact'},
-                       { name: 'Patrick Malley', type: 'Contact'},
+    $scope.contacts = [{ name: 'Patrick Malley', type: 'Contact', checked:false},
+                       { name: 'Patrick Malley', type: 'Contact', checked:false},
+                       { name: 'Patrick Malley', type: 'Contact', checked:false},
                       ];
 
-    $scope.selectedContacts = [];
-    $scope.selectedContacts = function () {
-      $scope.falconcontacts = $filter('filter')($scope.selectedContacts, {checked: true});
-    }
+    $scope.selectedUsers = {};
 
     ZiggeoApi.Events.on("submitted", function (data) {
         // Triggered when a video has been recorded 

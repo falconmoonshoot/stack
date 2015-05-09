@@ -8,9 +8,9 @@
       <h3 class="page-header">2. Select Contacts:</h1>
       <ul>
         <li class='falconstyle' ng-repeat='contact in contacts'>
-          <input type="checkbox" name="selectedContacts[]" id="{{contact.type}}" ng-model="contact.checked" ng-change="selectedContacts()" type='checkbox' /> {{contact.name}}
+          <input type="checkbox" checklist-model="selectedUsers" checklist-value="contact.name" type='checkbox' /> {{contact.name}}
         </li>
-        <div> Total: ({{falconcontacts}})
+        <div> Total: ({{selectedUsers}})
       </ul>
     </div>
   </div>

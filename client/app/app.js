@@ -7,11 +7,27 @@ angular.module('moonshootApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
+  'checklist-model'
   
 ])
+.run(function($rootScope, $location, $state) {
+
+
+    $rootScope.$on( '$stateChangeStart', function(e, toState  , toParams
+                                                   , fromState, fromParams) {
+
+        var isLogin = toState.name === "login";
+        if(isLogin){
+           return; // no need to redirect 
+        }
+
+        // now, redirect only not authenticated
+
+    });
+})
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/login');
 
     //this is home
 
@@ -19,7 +35,7 @@ angular.module('moonshootApp', [
             // HOME STATES AND NESTED VIEWS ========================================
             .state('login', {
                 url: '/login',
-                templateUrl: 'components/home/home.html',
+                templateUrl: 'components/login/login.html',
             })
             .state('analytics', {
                 url: '/analytics',
