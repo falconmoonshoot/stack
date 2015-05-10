@@ -93,11 +93,12 @@ angular.module('moonshootApp')
     	
     	$scope.myfalcons.forEach(function(entry){
     		if(!blah[entry.name]) {
-    			blah[entry.name] = {"name": entry.name,views: 0,responses:0, "publish_date": entry.createDate};
+    			blah[entry.name] = {"name": entry.name,views: 0,responses:[], "publish_date": entry.createDate};
     			pushed[entry.name]=false;
     		}
     		blah[entry.name].views += (entry.status!='sent')?1:0;
-    		blah[entry.name].responses += (entry.responsevideo)?1:0;
+    		if(entry.responsevideo)
+    			blah[entry.name].responses.push({name:entry.userName,video:entry.responsevideo});
 
     		
     	});

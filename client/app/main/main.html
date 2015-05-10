@@ -53,7 +53,8 @@
                 <span>{{falcon.views}}</span>
              </td>
              <td>
-              <span>{{falcon.responses}} </span>
+              <span ng-repeat='response in falcon.responses'><a ng-href="
+                http://embed.ziggeo.com/v1/applications/dd636264db4211ec022e4d1a0b2867ac/videos/{{response.video}}/video.mp4">{{response.name}} </a> </span>
              </td>
 
              <td>
