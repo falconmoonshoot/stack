@@ -78,24 +78,30 @@ angular.module('moonshootApp')
     	function(snapshot)
     	{
     		$scope.myfalcons.push(snapshot.val());
-    		console.log(snapshot.val());
-    		$scope.processFalcons();
+    			$scope.processFalcons();
+    		//	console.dir(snapshot.val());
+    			$scope.$apply();
     	    	});
+
 
     $scope.processFalcons = function()
     {
 
-    	var blah = {};
     	var pushed = {};
+		var blah = {};
+		$scope.falcons=[];
+    	
     	$scope.myfalcons.forEach(function(entry){
     		if(!blah[entry.name]) {
-    			blah[entry.name] = {"name": entry.name,views: 0, "publish_date": entry.createDate};
+    			blah[entry.name] = {"name": entry.name,views: 0,responses:0, "publish_date": entry.createDate};
     			pushed[entry.name]=false;
     		}
     		blah[entry.name].views += (entry.status!='sent')?1:0;
+    		blah[entry.name].responses += (entry.responsevideo)?1:0;
+
     		
     	});
-    	$scope.falcons = [];
+    	
 
     	$scope.myfalcons.forEach(function(entry){
     		if(!pushed[entry.name]) {
@@ -103,6 +109,7 @@ angular.module('moonshootApp')
     			pushed[entry.name]=true;
     		}
     	})
+    	console.dir($scope.falcons);
     	return $scope.falcons;
     }
     	
