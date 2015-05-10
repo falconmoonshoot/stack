@@ -42,7 +42,7 @@ angular.module('moonshootApp')
                        { name: 'Patrick Michael', type: 'Contact', checked:false, email:'steven.m.simoni+2@gmail.com'},
                        { name: 'Ray Carrol', type: 'Contact', checked:false, email:'steven.m.simoni+3@gmail.com'},
                        { name: 'Patrick Martin', type: 'Contact', checked:false, email:'steven.m.simoni+4@gmail.com'},
-                       { name: 'Scott Hutchins', type: 'Contact', checked:false, email:'steven.m.simoni+5@gmail.com'},
+                       { name: 'Steven Simoni', type: 'Contact', checked:false, email:'steven.m.simoni+5@gmail.com'},
                        { name: 'Randy Flores', type: 'Contact', checked:false, email:'steven.m.simoni+6@gmail.com'},
                        { name: 'Rio Sites', type: 'Contact', checked:false, email:'steven.m.simoni+7@gmail.com'},
                        { name: 'Caitlin Garlow', type: 'Contact', checked:false, email:'steven.m.simoni+8@gmail.com'},
