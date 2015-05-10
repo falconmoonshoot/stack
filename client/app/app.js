@@ -28,7 +28,7 @@ angular.module('moonshootApp', [
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     
     $urlRouterProvider
-      .otherwise('/login');
+      .otherwise('/');
 
     //this is home
 

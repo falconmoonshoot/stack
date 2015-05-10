@@ -48,6 +48,7 @@ angular.module('moonshootApp')
                           'event_time': new Date().getTime(),
                           }
               );
+              ref.update({status:'watched'});
          });
           ZiggeoApi.Events.on("stop", function(data) 
          {
@@ -71,6 +72,20 @@ angular.module('moonshootApp')
                           }
               );
          });
+
+          
+          ZiggeoApi.Events.on("submitted", function (data) {
+            console.dir(data);
+            eventlog.push(
+              { 'event_type': 'Submitted a video', 
+                          'event_falcon': syncObject.name, 
+                          'event_user': syncObject.userName,
+                          'event_time': new Date().getTime(),
+                          }
+              );
+                ref.update({status:'responded', responsevideo:data.video.token});
+            });
+           
          ZiggeoApi.Embed.embed("#player", {video: syncObject.videoGuid, modes:['player']});
 
      }
