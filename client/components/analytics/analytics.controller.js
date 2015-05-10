@@ -8,7 +8,7 @@ angular.module('moonshootApp')
     $scope.logEvents = [];
     $scope.eventLimit = 15;
 
-    firebaseRef.child("myfirstcreator").on("value", function(eventObj) {
+    firebaseRef.child("Mike Pollack").on("value", function(eventObj) {
       var events = eventObj.val();
 
       angular.forEach(events.eventlog, function(value, key){

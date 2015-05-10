@@ -52,6 +52,7 @@ angular.module('moonshootApp')
 
     $scope.sendFalcon = function(){
       if ($scope.recordingUniqueId){
+        $scope.landed=true
         angular.forEach($scope.selectedUsers, function(value, key){
            $scope.falconGuid = $scope.guid();
 
