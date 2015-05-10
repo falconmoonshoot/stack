@@ -16,7 +16,7 @@ angular.module('moonshootApp')
     });
     if(cnt > 0)
     {
-      $state.go('main',{'auth':params})
+      $state.go('main',{'auth':params});
     }
     var url2 = params["instance_url"]+"/services/data/v33.0/query/q=Select+Name+from+Contact";
   }
